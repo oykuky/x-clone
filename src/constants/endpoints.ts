@@ -1,0 +1,1 @@
+export const urlEndpoint = process.env.NEXT_PUBLIC_URL_ENDPOINT;
