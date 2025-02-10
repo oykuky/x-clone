@@ -45,6 +45,7 @@ export const Image = ({ path, h, w, alt, tr, className }: ImageProps) => {
         ? { transformation: [{ height: `${w}`, width: `${h}` }] }
         : { width: w, height: h })}
       className={className}
+      lqip={{active:true,quality:20}} //low quality image for better performance at first load
     />
   );
 };
