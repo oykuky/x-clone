@@ -1,10 +1,34 @@
-"use client";
 import React from "react";
 import { Image } from "../common/Image";
 import { PostInfo } from "./PostInfo";
 import PostEvents from "./PostEvents";
+import { imagekit } from "@/lib/util";
+import Video from "../common/Video";
 
-export const PostCard = () => {
+
+interface FileDetailsResponse {
+  width: number;
+  height: number;
+  filePath: string;
+  url: string;
+  fileType: string;
+  customMetadata?: { sensitive: boolean };
+}
+
+export const PostCard = async() => {
+  
+  const getFileDetails = async (
+    fileId: string
+  ): Promise<FileDetailsResponse> => {
+    return new Promise((resolve, reject) => {
+      imagekit.getFileDetails(fileId, function (error, result) {
+        if (error) reject(error);
+        else resolve(result as FileDetailsResponse);
+      });
+    });
+  };
+
+  const fileDetails = await getFileDetails("67a73314432c4764161bb769");
   return (
     <div className="p-4 border-b-[1px] border-borderGray">
       <div className="flex items-center gap-1 mb-1 text-sm text-textGray font-bold">
@@ -45,7 +69,21 @@ export const PostCard = () => {
             repellat maiores porro unde aliquam officia libero harum sit
             corporis cupiditate!
           </p>
-          <Image path="/general/post.jpg" alt="postImage" w={500} h={500} />
+          {/* <Image path="/general/post.jpg" alt="postImage" w={500} h={500} /> */}
+           {fileDetails && fileDetails.fileType === "image" ? (
+            <Image
+              path={fileDetails.filePath}
+              alt=""
+              w={fileDetails.width}
+              h={fileDetails.height}
+              className={fileDetails.customMetadata?.sensitive ? "blur-lg" : ""}
+            />
+          ) : (
+            <Video
+              path={fileDetails.filePath}
+              className={fileDetails.customMetadata?.sensitive ? "blur-lg" : ""}
+            />
+          )}
           <PostEvents />
         </div>
       </div>
