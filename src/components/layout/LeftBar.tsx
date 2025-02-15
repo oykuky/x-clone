@@ -30,17 +30,17 @@ export const LeftBar = () => {
         </div>
         {/* Button */}
         <Link
-          href="/?modal=/compose/post"
+          href="/compose/post"
           className="bg-white text-black rounded-full w-12 h-12 flex items-center justify-center xxl:hidden"
         >
           <Image path="icons/post.svg" alt="add post" w={24} h={24} />
         </Link>
 
         <Link
-          href="/?modal=/compose/post"
+          href="/compose/post"
           className="bg-white text-black rounded-full font-bold py-2 px-16 hidden xxl:block"
         >
-          Post
+          <span>Post</span>
         </Link>
       </div>
       {/* User info area */}

@@ -1,5 +1,4 @@
-const Default = () => {
+// Bu dosya modal olmadığında ne gösterileceğini belirtir
+export default function Default() {
   return null;
 }
-
-export default Default
