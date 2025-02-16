@@ -5,9 +5,9 @@ import { Image } from "../common/Image";
 
 export const LeftBar = () => {
   return (
-    <div className="sticky top-0 h-screen flex flex-col justify-between py-4">
-      <div className="flex flex-col gap-4 text-lg items-center xxl:items-start">
-        <Link href="/" className="p-2 rounded-full hover:bg-[#181818]">
+    <div className="sticky top-0 h-screen flex flex-col justify-between pt-2 pb-8">
+      <div className="flex flex-col gap-2 md:gap-4 text-lg items-center xxl:items-start">
+        <Link href="/" className="p-1 rounded-full hover:bg-[#181818]">
           <Image path="icons/logo.svg" alt="logo" w={24} h={24} />
         </Link>
         {/* Menu Items */}
@@ -15,7 +15,7 @@ export const LeftBar = () => {
           {menuList.map((item) => (
             <Link
               href={item.link}
-              className="flex items-center gap-3 p-2 rounded-full hover:bg-[#181818]"
+              className="flex items-center gap-4 p-2 rounded-full hover:bg-[#181818]"
               key={item.id}
             >
               <Image
@@ -46,12 +46,12 @@ export const LeftBar = () => {
       {/* User info area */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <div className="rounded-full">
+        <div className="w-10 h-10 relative rounded-full overflow-hidden">
             <Image
               path="/general/avatar.png"
               alt="öyküky"
-              w={40}
-              h={40}
+              w={100}
+              h={100}
               className="rounded-full"
             />
           </div>

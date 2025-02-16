@@ -23,7 +23,7 @@ export default function RootLayout({
             </div>
             {modal}
           </div>
-          <div className="hidden lg:flex ml-4 md:ml-8">
+          <div className="hidden lg:flex ml-4 md:ml-8 flex-1">
             <RightBar />
           </div>
         </div>
